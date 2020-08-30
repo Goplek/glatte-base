@@ -1,0 +1,23 @@
+{
+  "name": "glatte-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "bin/glatte-base.d.ts",
+  "bin": {
+    "glatte-base": "glatte-base.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Goplek/glatte-base.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Goplek/glatte-base/issues"
+  },
+  "homepage": "https://github.com/Goplek/glatte-base#readme"
+}

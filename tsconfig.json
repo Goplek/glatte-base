@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "target": "ES6",
+        "module": "amd",
+        "outFile": "bin/glatte-base.js",
+        "removeComments": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
