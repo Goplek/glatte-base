@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "target": "ES6",
+    "module": "amd",
+    "outFile": "static/demo.js",
+    "removeComments": true
+  },
+  "include": [
+    "../bin/glatte-base.d.ts",
+    "../src/global.d.ts",
+    "src/**/*"
+  ]
+}
