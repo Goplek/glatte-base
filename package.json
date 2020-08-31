@@ -10,7 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "find src/ -name '*.css' -exec cat {} \\; > bin/glatte.css",
-    "demo": "pushd demo; tsc; popd; ",
+    "demo": "npm run demo-build && npm run demo-css",
+    "demo-build": "pushd demo; tsc; popd",
     "demo-css": "find demo/src/ -name '*.css' -exec cat {} \\; > demo/static/demo.css"
   },
   "repository": {
