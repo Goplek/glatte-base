@@ -9,7 +9,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "find src/ -name '*.css' -exec cat {} \\; > bin/glatte.css"
+    "css": "find src/ -name '*.css' -exec cat {} \\; > bin/glatte.css",
+    "demo": "pushd demo; tsc; popd; ",
+    "demo-css": "find demo/src/ -name '*.css' -exec cat {} \\; > demo/static/demo.css"
   },
   "repository": {
     "type": "git",
