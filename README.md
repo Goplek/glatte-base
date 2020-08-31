@@ -3,7 +3,7 @@
 TODOs:
 
 - [x] CSS concatenating
-- [ ] CSS Image / Font resources
+- [x] CSS Image / Font resources
 - [ ] Actual strings on strings
 - [ ] Get rid of jQuery & rangy references (`global.d.ts`)
 - [ ] `umd` setup for https://unpkg.com/

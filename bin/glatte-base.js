@@ -9932,7 +9932,7 @@ var latte;
             this.element.addClass('glyph');
         }
         static get defaultUrl() {
-            return latte._latteUrl() + '/releases/latte.ui/support/imgs/glyphs.png';
+            return latte._latteUrl() + '/res/imgs/glyphs.png';
         }
         static _byLocation(u, v, name) {
             var g = new Glyph();

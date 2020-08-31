@@ -4,20 +4,14 @@ https://perxis.com
 **/
 
 @font-face {
-    font-family: 'Linearicons';
-    /*src:url('support/fonts/Linearicons-Free.eot?w118d');*/
-    /*src:url('support/fonts/Linearicons-Free.eot?#iefixw118d') format('embedded-opentype'),*/
-    /*url('support/fonts/Linearicons-Free.woff2?w118d') format('woff2'),*/
-    /*url('support/fonts/Linearicons-Free.woff?w118d') format('woff'),*/
-    /*url('support/fonts/Linearicons-Free.ttf') format('truetype'),*/
-    src:url('support/fonts/Linearicons.ttf');
-    /*url('support/fonts/Linearicons-Free.svg?w118d#Linearicons-Free') format('svg');*/
+    font-family: 'LineIcons';
+    src:url('res/fonts/line-icons.ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 .lnr {
-    font-family: 'Linearicons';
+    font-family: 'LineIcons';
     speak: none;
     font-style: normal;
     font-weight: normal;
