@@ -7,6 +7,7 @@
 */
 .latte-item.textbox{
     position: relative;
+    display: inline-block;
     font-family: sans-serif;
     font-size: 11px;
     text-align: left;

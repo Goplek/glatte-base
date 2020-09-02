@@ -6,7 +6,7 @@ var latte;
             this.loadsChildrenFolders = false;
         }
         getChildrenView() {
-            return new latte.ButtonView();
+            return new latte.DemoButtonView();
         }
         getName() {
             return "Button";
@@ -20,6 +20,9 @@ var latte;
         constructor() {
             super();
             this.loadsChildrenFolders = false;
+        }
+        getChildrenView() {
+            return new latte.DemoTextboxView();
         }
         getName() {
             return "Textbox";
@@ -50,10 +53,10 @@ var latte;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {
-    class ButtonView extends latte.ExplorerChildrenView {
+    class DemoButtonView extends latte.ExplorerChildrenView {
         constructor() {
             super();
-            this.addClass('demo-button-view');
+            this.addClass('demo-view');
             const hello = () => latte.DialogView.inform("Hello!");
             const columnView = new latte.ColumnView();
             const dd = [
@@ -100,5 +103,42 @@ var latte;
             this.view = columnView;
         }
     }
-    latte.ButtonView = ButtonView;
+    latte.DemoButtonView = DemoButtonView;
+})(latte || (latte = {}));
+var latte;
+(function (latte) {
+    class DemoTextboxView extends latte.ExplorerChildrenView {
+        constructor() {
+            super();
+            this.addClass('demo-view');
+            const columnView = new latte.ColumnView();
+            columnView.items.add(new latte.LabelItem("Simple Text box"));
+            columnView.items.add(new latte.TextboxItem());
+            const ta = new latte.TextboxItem();
+            ta.placeholder = "Enter a value here";
+            columnView.items.add(new latte.SeparatorItem());
+            columnView.items.add(new latte.LabelItem("Placeholder with indications"));
+            columnView.items.add(ta);
+            const tb = new latte.TextboxItem();
+            tb.sideLabel.text = "px";
+            tb.value = 50..toString();
+            columnView.items.add(new latte.SeparatorItem());
+            columnView.items.add(new latte.LabelItem("Some indication on sideLabel"));
+            columnView.items.add(tb);
+            this.view = columnView;
+            const tc = new latte.TextboxItem();
+            tc.filterSuggestions.add(() => {
+                tc.suggestions.clear();
+                for (let _ of new Array(5)) {
+                    const t = `${tc.value} - ${Math.round(Math.random() * 1000)}`;
+                    tc.suggestions.add(new latte.ButtonItem(t, null, () => tc.value = t));
+                }
+            });
+            columnView.items.add(new latte.SeparatorItem());
+            columnView.items.add(new latte.LabelItem("Suggestions"));
+            columnView.items.add(tc);
+            this.view = columnView;
+        }
+    }
+    latte.DemoTextboxView = DemoTextboxView;
 })(latte || (latte = {}));

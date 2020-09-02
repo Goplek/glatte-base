@@ -7,6 +7,10 @@ module latte{
             this.loadsChildrenFolders = false;
         }
 
+        getChildrenView(): ExplorerChildrenView{
+            return new DemoTextboxView();
+        }
+
         getName(): string{
             return "Textbox";
         }

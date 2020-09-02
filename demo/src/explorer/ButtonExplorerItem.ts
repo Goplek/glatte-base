@@ -8,7 +8,7 @@ module latte{
         }
 
         getChildrenView(): ExplorerChildrenView{
-            return new ButtonView();
+            return new DemoButtonView();
         }
 
         getName(): string{

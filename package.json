@@ -8,6 +8,7 @@
     "glatte-base": "glatte-base.js"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "find src/ -name '*.css' -exec cat {} \\; > bin/glatte.css",
     "demo": "npm run demo-build && npm run demo-css",

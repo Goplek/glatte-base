@@ -17467,8 +17467,10 @@ var latte;
             });
         }
         setValueSilently(value) {
-            this.ignorePassToTextbox = true;
-            this.value = value;
+            if (value !== this.value) {
+                this.ignorePassToTextbox = true;
+                this.value = value;
+            }
         }
         get enterPressed() {
             if (!this._enterPressed) {

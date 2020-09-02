@@ -447,8 +447,10 @@ module latte{
          * @param value
          */
         setValueSilently(value: string){
-            this.ignorePassToTextbox = true;
-            this.value = value;
+            if(value !== this.value){
+                this.ignorePassToTextbox = true;
+                this.value = value;
+            }
         }
 
         //endregion

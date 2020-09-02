@@ -1,10 +1,10 @@
 module latte{
-    export class ButtonView extends ExplorerChildrenView{
+    export class DemoButtonView extends ExplorerChildrenView{
 
         constructor(){
             super();
 
-            this.addClass('demo-button-view');
+            this.addClass('demo-view');
 
             const hello = () => DialogView.inform("Hello!");
             const columnView = new ColumnView();
