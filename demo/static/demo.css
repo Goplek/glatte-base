@@ -3,5 +3,6 @@
 }
 
 .demo-view .column-content > .latte-item.separator{
+    clear: both;
     height: 30px;
 }

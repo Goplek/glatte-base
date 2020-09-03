@@ -5,8 +5,13 @@ module latte{
             super();
 
             this.children.addArray([
-                new ButtonExplorerItem(),
-                new TextboxExplorerItem(),
+                new DemoExplorerItem("Button", async () => new DemoButtonView()),
+                new DemoExplorerItem("ButtonGroup", async () => new DemoGroupButtonView()),
+                new DemoExplorerItem("ColorPicker", async () => new DemoColorPickerView()),
+                new DemoExplorerItem("Conversation", async () => new DemoConversationView()),
+                new DemoExplorerItem("DateItem", async () => new DemoDateItemView()),
+                new DemoExplorerItem("Ribbon", async () => new DemoRibbonView()),
+                new DemoExplorerItem("Textbox", async () => new DemoTextboxView()),
             ]);
 
         }

@@ -1,12 +1,13 @@
+/// <reference path="DemoBaseView.ts"/>
 module latte{
-    export class DemoTextboxView extends ExplorerChildrenView{
+    export class DemoTextboxView extends DemoBaseView{
 
         constructor(){
             super();
 
             this.addClass('demo-view');
 
-            const columnView = new ColumnView();
+            const columnView = this;
 
             columnView.items.add(new LabelItem("Simple Text box"));
             columnView.items.add(new TextboxItem());
@@ -23,7 +24,6 @@ module latte{
             columnView.items.add(new SeparatorItem());
             columnView.items.add(new LabelItem("Some indication on sideLabel"));
             columnView.items.add(tb);
-            this.view = columnView;
 
             const tc = new TextboxItem();
             tc.filterSuggestions.add(() => {
@@ -37,7 +37,6 @@ module latte{
             columnView.items.add(new SeparatorItem());
             columnView.items.add(new LabelItem("Suggestions"));
             columnView.items.add(tc);
-            this.view = columnView;
 
         }
 
