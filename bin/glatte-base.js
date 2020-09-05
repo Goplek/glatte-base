@@ -20314,34 +20314,6 @@ var latte;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {
-    class NavigationView extends latte.SplitView {
-        constructor() {
-            super();
-            this.addClass('navigation');
-            this.tree = new latte.TreeView();
-            this.sideView = new latte.ToolbarView();
-            this.sideView.view = this.tree;
-            this.treeToolbar = this.sideView.toolbar;
-        }
-    }
-    latte.NavigationView = NavigationView;
-})(latte || (latte = {}));
-var latte;
-(function (latte) {
-    class NavigationListView extends latte.NavigationView {
-        constructor() {
-            super();
-            this.addClass('list');
-            var t = new latte.ToolbarView();
-            this.view = t;
-            this.toolbar = t.toolbar;
-            this.view.view = this.list = new latte.ListView();
-        }
-    }
-    latte.NavigationListView = NavigationListView;
-})(latte || (latte = {}));
-var latte;
-(function (latte) {
     class TreeView extends latte.View {
         constructor() {
             super();

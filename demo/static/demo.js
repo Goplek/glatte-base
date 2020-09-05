@@ -39,6 +39,8 @@ var latte;
                 new latte.DemoExplorerItem("DateItem", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoDateItemView(); })),
                 new latte.DemoExplorerItem("Ribbon", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoRibbonView(); })),
                 new latte.DemoExplorerItem("Textbox", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoTextboxView(); })),
+                new latte.DemoExplorerItem("SplitView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoSplitView(); })),
+                new latte.DemoExplorerItem("TabView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoTabView(); })),
             ]);
         }
         getColumnHeaders() {
@@ -267,6 +269,70 @@ var latte;
         }
     }
     latte.DemoRibbonView = DemoRibbonView;
+})(latte || (latte = {}));
+var latte;
+(function (latte) {
+    class DemoSplitView extends latte.SplitView {
+        constructor() {
+            super();
+            const side = new latte.DemoBaseView();
+            const main = new latte.DemoBaseView();
+            side.addLabel("This is the side View");
+            main.addLabel("This is the main View");
+            const setSide = (side) => {
+                this.side = side;
+                switch (side) {
+                    case latte.Side.TOP:
+                        g.checkedButton = top;
+                        break;
+                    case latte.Side.LEFT:
+                        g.checkedButton = left;
+                        break;
+                    case latte.Side.RIGHT:
+                        g.checkedButton = right;
+                        break;
+                    case latte.Side.BOTTOM:
+                        g.checkedButton = bottom;
+                        break;
+                }
+            };
+            const top = new latte.ButtonItem("Top", null, () => setSide(latte.Side.TOP));
+            const left = new latte.ButtonItem("Left", null, () => setSide(latte.Side.LEFT));
+            const right = new latte.ButtonItem("Right", null, () => setSide(latte.Side.RIGHT));
+            const bottom = new latte.ButtonItem("Bottom", null, () => setSide(latte.Side.BOTTOM));
+            const g = new latte.ButtonGroupItem([top, left, right, bottom]);
+            main.addItem("Choose a Side for anchoring the split", g);
+            this.sideView = side;
+            this.view = main;
+            setSide(latte.Side.TOP);
+        }
+    }
+    latte.DemoSplitView = DemoSplitView;
+})(latte || (latte = {}));
+var latte;
+(function (latte) {
+    class DemoTabView extends latte.TabView {
+        constructor() {
+            super();
+            const a = new latte.TabItem("First Tab");
+            const b = new latte.TabItem("Second Tab");
+            const c = new latte.TabItem("Third Tab");
+            this.tabs.addArray([a, b, c]);
+            const main = new latte.DemoBaseView();
+            const top = new latte.ButtonItem("Snap to top", null, () => this.tabsSide = latte.Side.TOP);
+            const bottom = new latte.ButtonItem("Snap to bottom", null, () => this.tabsSide = latte.Side.BOTTOM);
+            const lblSelected = new latte.LabelItem();
+            main.addItem("Try snapping tabs to top", top);
+            main.addItem("Try snapping tabs to bottom", bottom);
+            main.addItem("SelectedTab:", lblSelected);
+            this.selectedTabChanged.add(() => {
+                lblSelected.text = this.selectedTab.text;
+            });
+            this.selectedTab = a;
+            this.view = main;
+        }
+    }
+    latte.DemoTabView = DemoTabView;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {

@@ -13,7 +13,9 @@
 <body>
 <script>
     window['-vendor-latte-url'] = "../bin";
-    latte.View.setMainView(new latte.ExplorerView(new latte.UiRootItem));
+    const explorer = new latte.ExplorerView(new latte.UiRootItem());
+    explorer.detailSplitView.sideVisible = false;
+    latte.View.setMainView(explorer);
 </script>
 </body>
 </html>

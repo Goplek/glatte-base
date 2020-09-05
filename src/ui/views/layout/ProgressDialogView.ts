@@ -20,7 +20,7 @@ module latte {
         constructor() {
             super();
 
-            this.columnView.items.addArray([this.label, this.progress])
+            this.columnView.items.addArray([this.label, this.progress]);
 
             this.view = this.columnView;
         }

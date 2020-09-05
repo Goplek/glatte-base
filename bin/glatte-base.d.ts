@@ -6358,20 +6358,6 @@ declare module latte {
     }
 }
 declare module latte {
-    class NavigationView extends SplitView {
-        tree: TreeView;
-        treeToolbar: Toolbar;
-        constructor();
-    }
-}
-declare module latte {
-    class NavigationListView extends NavigationView {
-        list: ListView;
-        toolbar: Toolbar;
-        constructor();
-    }
-}
-declare module latte {
     class TreeView extends View {
         private _defaultGlyphCollapse;
         private _defaultGlyphCollapseSelected;
