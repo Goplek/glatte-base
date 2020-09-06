@@ -9,9 +9,6 @@ module latte{
             const c = new TabItem("Third Tab");
 
             this.tabs.addArray([a, b, c]);
-
-
-
             const main = new DemoBaseView();
 
             const top = new ButtonItem("Snap to top", null, () => this.tabsSide = Side.TOP);

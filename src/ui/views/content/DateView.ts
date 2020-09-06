@@ -95,7 +95,7 @@ module latte{
         /**
          * Hides the selection mode buttons
          **/
-            hideButtons(){
+        hideButtons(){
 
             this.weekButton.visible = false;
             this.workWeekButton.visible = false;
@@ -171,7 +171,7 @@ module latte{
         /**
          * Updates the selection mode indicators
          **/
-            updateSelectionMode(){
+        updateSelectionMode(){
 
             this.dayButton.checked = (this.dateItem.selectionMode == DateSelectionMode.DAY);
             this.workWeekButton.checked = (this.dateItem.selectionMode == DateSelectionMode.WORKWEEK);

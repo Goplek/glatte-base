@@ -39,6 +39,8 @@ var latte;
                 new latte.DemoExplorerItem("DateItem", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoDateItemView(); })),
                 new latte.DemoExplorerItem("Ribbon", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoRibbonView(); })),
                 new latte.DemoExplorerItem("Textbox", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoTextboxView(); })),
+                new latte.DemoExplorerItem("CalendarView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoCalendarView(); })),
+                new latte.DemoExplorerItem("DialogView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoDialogView(); })),
                 new latte.DemoExplorerItem("SplitView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoSplitView(); })),
                 new latte.DemoExplorerItem("TabView", () => __awaiter(this, void 0, void 0, function* () { return new latte.DemoTabView(); })),
             ]);
@@ -129,6 +131,17 @@ var latte;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {
+    class DemoCalendarView extends latte.SplitView {
+        constructor() {
+            super();
+            this.side = latte.Side.TOP;
+            this.view = new latte.CalendarView();
+        }
+    }
+    latte.DemoCalendarView = DemoCalendarView;
+})(latte || (latte = {}));
+var latte;
+(function (latte) {
     class DemoColorPickerView extends latte.DemoBaseView {
         constructor() {
             super();
@@ -186,6 +199,27 @@ var latte;
         }
     }
     latte.DemoDateItemView = DemoDateItemView;
+})(latte || (latte = {}));
+var latte;
+(function (latte) {
+    class DemoDialogView extends latte.DemoBaseView {
+        constructor() {
+            super();
+            this.addItem("Inform something", new latte.ButtonItem("DialogView.inform()", null, () => {
+                latte.DialogView.inform("This is the message", "This is a long description for the message");
+            }));
+            this.addItem("Alert something", new latte.ButtonItem("DialogView.alert()", null, () => {
+                latte.DialogView.alert("This is the message");
+            }));
+            this.addItem("Prompt info", new latte.ButtonItem("DialogView.input()", null, () => {
+                latte.DialogView.input("Ask something", {
+                    "name": { type: "string", text: "Name" },
+                    "remember": { type: "boolean", text: "Don't ask me again" }
+                });
+            }));
+        }
+    }
+    latte.DemoDialogView = DemoDialogView;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {

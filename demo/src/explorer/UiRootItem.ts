@@ -12,6 +12,8 @@ module latte{
                 new DemoExplorerItem("DateItem", async () => new DemoDateItemView()),
                 new DemoExplorerItem("Ribbon", async () => new DemoRibbonView()),
                 new DemoExplorerItem("Textbox", async () => new DemoTextboxView()),
+                new DemoExplorerItem("CalendarView", async () => new DemoCalendarView()),
+                new DemoExplorerItem("DialogView", async () => new DemoDialogView()),
                 new DemoExplorerItem("SplitView", async () => new DemoSplitView()),
                 new DemoExplorerItem("TabView", async () => new DemoTabView()),
             ]);

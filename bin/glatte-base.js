@@ -1,253 +1,1507 @@
+var late;
+(function (late) {
+    class I18 {
+        static resolve(str) {
+            if (I18.lang in str && !!str[I18.lang]) {
+                return str[I18.lang];
+            }
+            else if (I18.defaultLang in str) {
+                return str[I18.defaultLang];
+            }
+            else if (!I18.lang) {
+                console.warn(`No lang specified. Set I18.lang = "en"`);
+            }
+            else {
+                console.warn(`Not found lang "${I18.lang}"`);
+            }
+        }
+    }
+    I18.defaultLang = 'en';
+    I18.lang = 'en';
+    late.I18 = I18;
+})(late || (late = {}));
 var latte;
 (function (latte) {
-    latte.strings = {
-        justNow: "",
-        oneMinuteAgo: "",
-        SMinutesAgo: "",
-        oneHourAgo: "",
-        SHoursAgo: "",
-        yesterday: "",
-        SDaysAgo: "",
-        oneWeekAgo: "",
-        SWeeksAgo: "",
-        oneYearAgo: "",
-        SYearsAgo: "",
-        sunday: "",
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sundayShort: "",
-        mondayShort: "",
-        tuesdayShort: "",
-        wednesdayShort: "",
-        thursdayShort: "",
-        fridayShort: "",
-        saturdayShort: "",
-        sundayInitial: "",
-        mondayInitial: "",
-        tuesdayInitial: "",
-        wednesdayInitial: "",
-        thursdayInitial: "",
-        fridayInitial: "",
-        saturdayInitial: "",
-        january: "",
-        february: "",
-        march: "",
-        april: "",
-        may: "",
-        june: "",
-        july: "",
-        august: "",
-        september: "",
-        october: "",
-        november: "",
-        december: "",
-        januaryShort: "",
-        februaryShort: "",
-        marchShort: "",
-        aprilShort: "",
-        mayShort: "",
-        juneShort: "",
-        julyShort: "",
-        augustShort: "",
-        septemberShort: "",
-        octoberShort: "",
-        novemberShort: "",
-        decemberShort: "",
-        januaryInitial: "",
-        februaryInitial: "",
-        marchInitial: "",
-        aprilInitial: "",
-        mayInitial: "",
-        juneInitial: "",
-        julyInitial: "",
-        augustInitial: "",
-        septemberInitial: "",
-        octoberInitial: "",
-        novemberInitial: "",
-        decemberInitial: "",
-        Smillis: "",
-        oneSecond: "",
-        Sseconds: "",
-        oneMinute: "",
-        Sminutes: "",
-        oneHour: "",
-        Shours: "",
-        oneDay: "",
-        Sdays: "",
-        oneWeek: "",
-        Sweeks: "",
-        SmillisShort: "",
-        oneSecondShort: "",
-        SsecondsShort: "",
-        oneMinuteShort: "",
-        SminutesShort: "",
-        oneHourShort: "",
-        ShoursShort: "",
-        oneDayShort: "",
-        SdaysShort: "",
-        oneWeekShort: "",
-        SweeksShort: "",
-        tomorrow: "",
-        today: "",
-        nextWeekDayS: "",
-        SWeeksFromNow: "",
-        SYearsFromNow: "",
-        oneYearFromNow: "",
-        DataLatte: "",
-        info: "",
-        edit: "",
-        save: "",
-        saveAndClose: "",
-        saveAndNew: "",
-        selectMonth: "",
-        defaultBool: "",
-        add: "",
-        addNew: "",
-        change: "",
-        see: "",
-        newKey: "",
-        listof: "",
-        ok: "",
-        cancel: "",
-        selectObject: "",
-        listOfVar: "",
-        pick: "",
-        createNew: "",
-        create: "",
-        secretPassword: "",
-        passphrase: "",
-        managerDisabled: "",
-        managerCheckingEnabled: "",
-        managerCheckingReady: "",
-        managerCheckingLoggedIn: "",
-        enterPassphrase: "",
-        managerNotEnabled: "",
-        managerNotReady: "",
-        invalidPassphrase: "",
-        logout: "",
-        connection: "",
-        enterConnectionData: "",
-        userName: "",
-        password: "",
-        host: "",
-        dbName: "",
-        parametersError: "",
-        recordsUpdated: "",
-        fieldNotValid: "",
-        fieldNotNumber: "",
-        minValueIsS: "",
-        maxValueIsS: "",
-        minLenValueIsS: "",
-        maxLenValueIsS: "",
-        valueNotInteger: "",
-        fieldMustHaveValue: "",
-        home: "",
-        api: "",
-        datalatte: "",
-        dbConnection: "",
-        updateRecords: "",
-        settings: "",
-        cantConnectToServer: "",
-        cantSelectDbS: "",
-        errorOnQueryS: "",
-        greatScott: "",
-        datalatteInitFailed: "",
-        loading: "",
-        saving: "",
-        tableData: "",
-        tableColumns: "",
-        insertNow: "",
-        columnName: "",
-        type: "",
-        length: "",
-        flags: "",
-        strNull: "",
-        strDefault: "",
-        extra: "",
-        yes: "",
-        no: "",
-        commit: "",
-        revert: "",
-        apply: "",
-        deleteRow: "",
-        copy: "",
-        paste: "",
-        setAsNull: "",
-        autoIncrement: "",
-        primaryKey: "",
-        createTable: "",
-        tableName: "",
-        dropTable: "",
-        confirmDropTable: "",
-        php: "",
-        userAgent: "",
-        database: "",
-        app: "",
-        query: "",
-        execute: "",
-        passphraseExplain: "",
-        errorExecutingQuery: "",
-        close: "",
-        secret: "",
-        writeComment: "",
-        showMoreCommentsS: "",
-        uploadingS: "",
-        uploadingSSPercent: "",
-        error: "",
-        name: "",
-        working: "",
-        day: "",
-        week: "",
-        workWeek: "",
-        month: "",
-        fullWeek: "",
-        pleaseSelect: "",
-        askSaveChanges: "",
-        unsavedChanges: "",
-        yesSaveChanges: "",
-        noIgnoreChanges: "",
-        imageUrl: "",
-        linkUrl: "",
-        bold: "",
-        italics: "",
-        alignLeft: "",
-        alignRight: "",
-        alignCenter: "",
-        alignJustify: "",
-        indent: "",
-        outdent: "",
-        numberedList: "",
-        bulletList: "",
-        eraseFormat: "",
-        insertImage: "",
-        insertLink: "",
-        nextPage: "",
-        previousPage: "",
-        underline: "",
-        insertHTML: "",
-        videoURL: "",
-        urlNotYouTube: "",
-        makeRelease: "",
-        insertYouTube: "",
-        clearText: "",
-        developedBy: "",
-        confirmDeleteS: "",
-        cantBeUndone: "",
-        yesDeleteS: "",
-        goToPage: "",
-        refresh: "",
-        switchOn: "",
-        switchOff: "",
-        flagsNone: "",
-        nothingToShow: "",
-        jumpToYear: "",
-        reconnecting: "",
-        reconnectingInS: "",
-    };
+    var I18 = late.I18;
+    class strings {
+        static get DataLatte() {
+            return I18.resolve({
+                "en": "DataLatte",
+                "es": "DataLatte"
+            });
+        }
+        static get info() {
+            return I18.resolve({
+                "en": "Info",
+                "es": "Info"
+            });
+        }
+        static get edit() {
+            return I18.resolve({
+                "en": "Edit",
+                "es": "Editar"
+            });
+        }
+        static get save() {
+            return I18.resolve({
+                "en": "Save",
+                "es": "Guardar"
+            });
+        }
+        static get saveAndClose() {
+            return I18.resolve({
+                "en": "Save and Close",
+                "es": "Guardar y Cerrar"
+            });
+        }
+        static get saveAndNew() {
+            return I18.resolve({
+                "en": "Save and New",
+                "es": "Guardar y Nuevo"
+            });
+        }
+        static get selectMonth() {
+            return I18.resolve({
+                "en": "Select",
+                "es": "Seleccionar"
+            });
+        }
+        static get defaultBool() {
+            return I18.resolve({
+                "en": "Yes/No",
+                "es": "Sí/No"
+            });
+        }
+        static get add() {
+            return I18.resolve({
+                "en": "Add",
+                "es": "Agregar"
+            });
+        }
+        static get addNew() {
+            return I18.resolve({
+                "en": "Add New",
+                "es": "Agregar Nuevo"
+            });
+        }
+        static get change() {
+            return I18.resolve({
+                "en": "Change",
+                "es": "Cambiar"
+            });
+        }
+        static get see() {
+            return I18.resolve({
+                "en": "See",
+                "es": "Ver"
+            });
+        }
+        static get newKey() {
+            return I18.resolve({
+                "en": "new",
+                "es": "Nuevo"
+            });
+        }
+        static get listof() {
+            return I18.resolve({
+                "en": "List of %s",
+                "es": "Lista de %s"
+            });
+        }
+        static get ok() {
+            return I18.resolve({
+                "en": "OK",
+                "es": "Aceptar"
+            });
+        }
+        static get cancel() {
+            return I18.resolve({
+                "en": "Cancel",
+                "es": "Cancelar"
+            });
+        }
+        static get selectObject() {
+            return I18.resolve({
+                "en": "Select Object",
+                "es": "Seleccionar objeto"
+            });
+        }
+        static get listOfVar() {
+            return I18.resolve({
+                "en": "List of (%s)",
+                "es": "Lista de (%s)"
+            });
+        }
+        static get pick() {
+            return I18.resolve({
+                "en": "Pick",
+                "es": "Elegir"
+            });
+        }
+        static get createNew() {
+            return I18.resolve({
+                "en": "Create New",
+                "es": "Crear nuevo"
+            });
+        }
+        static get create() {
+            return I18.resolve({
+                "en": "Create",
+                "es": "Crear"
+            });
+        }
+        static get secretPassword() {
+            return I18.resolve({
+                "en": "(Secret)",
+                "es": "(Secreto)"
+            });
+        }
+        static get passphrase() {
+            return I18.resolve({
+                "en": "Passphrase",
+                "es": "Passphrase"
+            });
+        }
+        static get managerDisabled() {
+            return I18.resolve({
+                "en": "Manager Disabled",
+                "es": "Manager Disabled"
+            });
+        }
+        static get managerCheckingEnabled() {
+            return I18.resolve({
+                "en": "Checking if Manager Enabled",
+                "es": "Checking if Manager Enabled"
+            });
+        }
+        static get managerCheckingReady() {
+            return I18.resolve({
+                "en": "Checking if Manager Ready",
+                "es": "Checking if Manager Ready"
+            });
+        }
+        static get managerCheckingLoggedIn() {
+            return I18.resolve({
+                "en": "Checking if logged in",
+                "es": "Checking if logged in"
+            });
+        }
+        static get enterPassphrase() {
+            return I18.resolve({
+                "en": "Enter Passphrase:",
+                "es": "Enter Passphrase:"
+            });
+        }
+        static get managerNotEnabled() {
+            return I18.resolve({
+                "en": "No passphrase configured. Please create a file named passphrase.php in datalatte-files directory. It must contain a PHP const named PASSPHRASE with the passphrase you wish to use for DataLatte Manager.",
+                "es": "No passphrase configured. Please create a file named passphrase.php in datalatte-files directory. It must contain a PHP const named PASSPHRASE with the passphrase you wish to use for DataLatte Manager."
+            });
+        }
+        static get managerNotReady() {
+            return I18.resolve({
+                "en": "Directory datalatte-files/ must have permissions to write.",
+                "es": "Directory datalatte-files/ must have permissions to write."
+            });
+        }
+        static get invalidPassphrase() {
+            return I18.resolve({
+                "en": "Invalid Passphrase.",
+                "es": "Invalid Passphrase."
+            });
+        }
+        static get logout() {
+            return I18.resolve({
+                "en": "Log Out",
+                "es": "Cerrar sesión"
+            });
+        }
+        static get connection() {
+            return I18.resolve({
+                "en": "Connection",
+                "es": "Conexión"
+            });
+        }
+        static get enterConnectionData() {
+            return I18.resolve({
+                "en": "Enter MYSQL connection data:",
+                "es": "Datos de conexión MySQL"
+            });
+        }
+        static get userName() {
+            return I18.resolve({
+                "en": "User name",
+                "es": "Nombre de usuario"
+            });
+        }
+        static get password() {
+            return I18.resolve({
+                "en": "Password",
+                "es": "Contaseña"
+            });
+        }
+        static get host() {
+            return I18.resolve({
+                "en": "Host",
+                "es": "Servidor"
+            });
+        }
+        static get dbName() {
+            return I18.resolve({
+                "en": "DataBase name",
+                "es": "Base de datos"
+            });
+        }
+        static get parametersError() {
+            return I18.resolve({
+                "en": "Can't establish connection using parameters:",
+                "es": "No se puee establecer conexión con los parámetros:"
+            });
+        }
+        static get recordsUpdated() {
+            return I18.resolve({
+                "en": "Records updated",
+                "es": "Registros actualizados"
+            });
+        }
+        static get fieldNotValid() {
+            return I18.resolve({
+                "en": "The field is not valid",
+                "es": "El campo no es válido"
+            });
+        }
+        static get fieldNotNumber() {
+            return I18.resolve({
+                "en": "The field is not a numeric value",
+                "es": "El campo no es numérico"
+            });
+        }
+        static get minValueIsS() {
+            return I18.resolve({
+                "en": "The minimum value is %s",
+                "es": "El valor mínimo es: s%"
+            });
+        }
+        static get maxValueIsS() {
+            return I18.resolve({
+                "en": "The maximum value is %s",
+                "es": "The maximum value is %s"
+            });
+        }
+        static get minLenValueIsS() {
+            return I18.resolve({
+                "en": "The minimum of characters is %s",
+                "es": "Mínimo de caracteres es %s"
+            });
+        }
+        static get maxLenValueIsS() {
+            return I18.resolve({
+                "en": "The maximum of characters is %s",
+                "es": "Máximo de caracteres es %s"
+            });
+        }
+        static get valueNotInteger() {
+            return I18.resolve({
+                "en": "Value is not an integer number",
+                "es": "El valor no es un número entero"
+            });
+        }
+        static get fieldMustHaveValue() {
+            return I18.resolve({
+                "en": "The field is mandatory. Must have a value.",
+                "es": "El campo es obligatoio"
+            });
+        }
+        static get home() {
+            return I18.resolve({
+                "en": "Home",
+                "es": "Inicio"
+            });
+        }
+        static get api() {
+            return I18.resolve({
+                "en": "API",
+                "es": "API"
+            });
+        }
+        static get datalatte() {
+            return I18.resolve({
+                "en": "DataLatte",
+                "es": "DataLatte"
+            });
+        }
+        static get dbConnection() {
+            return I18.resolve({
+                "en": "Connection",
+                "es": "Conexión"
+            });
+        }
+        static get updateRecords() {
+            return I18.resolve({
+                "en": "Update Records",
+                "es": "Actualizar registros"
+            });
+        }
+        static get settings() {
+            return I18.resolve({
+                "en": "Settings",
+                "es": "Ajustes"
+            });
+        }
+        static get cantConnectToServer() {
+            return I18.resolve({
+                "en": "Can't connect to server %s (user %s)",
+                "es": "No se puede conectar al servidor %s (Usuario %s)"
+            });
+        }
+        static get cantSelectDbS() {
+            return I18.resolve({
+                "en": "Can't select database %s",
+                "es": "No se puede seleccionar la base de datos: %s"
+            });
+        }
+        static get errorOnQueryS() {
+            return I18.resolve({
+                "en": "Error when executing a query: %s <sql>%s</sql>",
+                "es": "Error al ejecutar el query: %s <sql>%s</sql>"
+            });
+        }
+        static get greatScott() {
+            return I18.resolve({
+                "en": "Great Scott! Automatic Initialization througn connection.php failed!",
+                "es": "Great Scott! Automatic Initialization through connection.php failed!"
+            });
+        }
+        static get datalatteInitFailed() {
+            return I18.resolve({
+                "en": "No ConnectionParameters class defined and no datalatte-files/connection.php file. You may configure a connection in /datalatte with your web DetailView.",
+                "es": "No ConnectionParameters class defined and no datalatte-files/connection.php file. You may configure a connection in /datalatte with your web DetailView."
+            });
+        }
+        static get loading() {
+            return I18.resolve({
+                "en": "Loading",
+                "es": "Cargando"
+            });
+        }
+        static get saving() {
+            return I18.resolve({
+                "en": "Saving...",
+                "es": "Guardando"
+            });
+        }
+        static get tableData() {
+            return I18.resolve({
+                "en": "Data",
+                "es": "Datos"
+            });
+        }
+        static get tableColumns() {
+            return I18.resolve({
+                "en": "Columns",
+                "es": "Columnas"
+            });
+        }
+        static get insertNow() {
+            return I18.resolve({
+                "en": "Insert Now",
+                "es": "Insertar ahora"
+            });
+        }
+        static get columnName() {
+            return I18.resolve({
+                "en": "Column Name",
+                "es": "Nombre de la columna"
+            });
+        }
+        static get type() {
+            return I18.resolve({
+                "en": "Type",
+                "es": "Tipo"
+            });
+        }
+        static get lengthStr() {
+            return I18.resolve({
+                "en": "Length",
+                "es": "Ancho"
+            });
+        }
+        static get flags() {
+            return I18.resolve({
+                "en": "Flags",
+                "es": "Flags"
+            });
+        }
+        static get strNull() {
+            return I18.resolve({
+                "en": "Null",
+                "es": "Null"
+            });
+        }
+        static get strDefault() {
+            return I18.resolve({
+                "en": "Default",
+                "es": "Default"
+            });
+        }
+        static get extra() {
+            return I18.resolve({
+                "en": "Extra",
+                "es": "Extra"
+            });
+        }
+        static get yes() {
+            return I18.resolve({
+                "en": "Yes",
+                "es": "Sí"
+            });
+        }
+        static get no() {
+            return I18.resolve({
+                "en": "No",
+                "es": "No"
+            });
+        }
+        static get commit() {
+            return I18.resolve({
+                "en": "Commit",
+                "es": "Cometer"
+            });
+        }
+        static get revert() {
+            return I18.resolve({
+                "en": "Revert",
+                "es": "Revertir"
+            });
+        }
+        static get apply() {
+            return I18.resolve({
+                "en": "Apply",
+                "es": "Aplicar"
+            });
+        }
+        static get deleteRow() {
+            return I18.resolve({
+                "en": "Delete Row",
+                "es": "Eliminar renglón"
+            });
+        }
+        static get copy() {
+            return I18.resolve({
+                "en": "Copy",
+                "es": "Copiar"
+            });
+        }
+        static get paste() {
+            return I18.resolve({
+                "en": "Paste",
+                "es": "Pegar"
+            });
+        }
+        static get setAsNull() {
+            return I18.resolve({
+                "en": "Set as Null",
+                "es": "Marcar como Null"
+            });
+        }
+        static get autoIncrement() {
+            return I18.resolve({
+                "en": "Auto Increment",
+                "es": "Auto Incremental"
+            });
+        }
+        static get primaryKey() {
+            return I18.resolve({
+                "en": "Primary Key",
+                "es": "Llave primaria"
+            });
+        }
+        static get createTable() {
+            return I18.resolve({
+                "en": "Create table",
+                "es": "Crear tabla"
+            });
+        }
+        static get tableName() {
+            return I18.resolve({
+                "en": "Table name",
+                "es": "Nombre de la tabla"
+            });
+        }
+        static get dropTable() {
+            return I18.resolve({
+                "en": "Drop Table",
+                "es": "Eliminar tabla"
+            });
+        }
+        static get confirmDropTable() {
+            return I18.resolve({
+                "en": "Do you want to drop the table %s?",
+                "es": "Deseas eliminar la tabla %s?"
+            });
+        }
+        static get php() {
+            return I18.resolve({
+                "en": "PHP",
+                "es": "PHP"
+            });
+        }
+        static get userAgent() {
+            return I18.resolve({
+                "en": "User Agent",
+                "es": "User Agent"
+            });
+        }
+        static get database() {
+            return I18.resolve({
+                "en": "Database",
+                "es": "Base de datos"
+            });
+        }
+        static get app() {
+            return I18.resolve({
+                "en": "App",
+                "es": "App"
+            });
+        }
+        static get query() {
+            return I18.resolve({
+                "en": "Query",
+                "es": "Query"
+            });
+        }
+        static get execute() {
+            return I18.resolve({
+                "en": "Execute",
+                "es": "Ejecutar"
+            });
+        }
+        static get passphraseExplain() {
+            return I18.resolve({
+                "en": "Please enter the passphrase configured on datalatte-files/",
+                "es": "Escribe el passphrase"
+            });
+        }
+        static get errorExecutingQuery() {
+            return I18.resolve({
+                "en": "Error executing query",
+                "es": "Error executing query"
+            });
+        }
+        static get close() {
+            return I18.resolve({
+                "en": "Close",
+                "es": "Cerrar"
+            });
+        }
+        static get secret() {
+            return I18.resolve({
+                "en": "Secret",
+                "es": "Secreto"
+            });
+        }
+        static get writeComment() {
+            return I18.resolve({
+                "en": "Write Comment",
+                "es": "Escribir comentario"
+            });
+        }
+        static get showMoreCommentsS() {
+            return I18.resolve({
+                "en": "Show more comments (%s)",
+                "es": "Mostrar más comentarios (%s)"
+            });
+        }
+        static get uploadingS() {
+            return I18.resolve({
+                "en": "Uploading %s",
+                "es": "Subiendo %s"
+            });
+        }
+        static get uploadingSSPercent() {
+            return I18.resolve({
+                "en": "Uploading %s %s",
+                "es": "Subiendo %s %s"
+            });
+        }
+        static get error() {
+            return I18.resolve({
+                "en": "Error",
+                "es": "Error"
+            });
+        }
+        static get nameStr() {
+            return I18.resolve({
+                "en": "Name",
+                "es": "Nombre"
+            });
+        }
+        static get working() {
+            return I18.resolve({
+                "en": "Working",
+                "es": "Trabajando"
+            });
+        }
+        static get day() {
+            return I18.resolve({
+                "en": "Day",
+                "es": "Día"
+            });
+        }
+        static get week() {
+            return I18.resolve({
+                "en": "Week",
+                "es": "Semana"
+            });
+        }
+        static get workWeek() {
+            return I18.resolve({
+                "en": "Work Week",
+                "es": "Semana laboral"
+            });
+        }
+        static get month() {
+            return I18.resolve({
+                "en": "Month",
+                "es": "Mes"
+            });
+        }
+        static get fullWeek() {
+            return I18.resolve({
+                "en": "Full Week",
+                "es": "Semana completa"
+            });
+        }
+        static get pleaseSelect() {
+            return I18.resolve({
+                "en": "Select...",
+                "es": "Seleccionar..."
+            });
+        }
+        static get askSaveChanges() {
+            return I18.resolve({
+                "en": "Do you want to save your changes?",
+                "es": "¿Deseas guardar los cambios?"
+            });
+        }
+        static get unsavedChanges() {
+            return I18.resolve({
+                "en": "Unsaved Changes",
+                "es": "Cambios sin guardar"
+            });
+        }
+        static get yesSaveChanges() {
+            return I18.resolve({
+                "en": "Yes, save changes",
+                "es": "Sí, guardar cambios"
+            });
+        }
+        static get noIgnoreChanges() {
+            return I18.resolve({
+                "en": "No, ignore changes",
+                "es": "No, ignorar los cambios"
+            });
+        }
+        static get imageUrl() {
+            return I18.resolve({
+                "en": "Image's URL:",
+                "es": "URL Imagen:"
+            });
+        }
+        static get linkUrl() {
+            return I18.resolve({
+                "en": "Link's URL:",
+                "es": " URL Hipervínculo:"
+            });
+        }
+        static get bold() {
+            return I18.resolve({
+                "en": "Bold",
+                "es": "Negrita"
+            });
+        }
+        static get italics() {
+            return I18.resolve({
+                "en": "Italics",
+                "es": "Cursiva"
+            });
+        }
+        static get alignLeft() {
+            return I18.resolve({
+                "en": "Align left",
+                "es": "Alinear a la izquierda"
+            });
+        }
+        static get alignRight() {
+            return I18.resolve({
+                "en": "Align right",
+                "es": "Alienar a la derecha"
+            });
+        }
+        static get alignCenter() {
+            return I18.resolve({
+                "en": "Center text",
+                "es": "Centrar Texto"
+            });
+        }
+        static get alignJustify() {
+            return I18.resolve({
+                "en": "Justify text",
+                "es": "Justificar texto"
+            });
+        }
+        static get indent() {
+            return I18.resolve({
+                "en": "Indent",
+                "es": "Indentar"
+            });
+        }
+        static get outdent() {
+            return I18.resolve({
+                "en": "Outdent",
+                "es": "Des-indentar"
+            });
+        }
+        static get numberedList() {
+            return I18.resolve({
+                "en": "Numbered list",
+                "es": "Lista numerada"
+            });
+        }
+        static get bulletList() {
+            return I18.resolve({
+                "en": "List",
+                "es": "Lista"
+            });
+        }
+        static get eraseFormat() {
+            return I18.resolve({
+                "en": "Erase format",
+                "es": "Borrar formato"
+            });
+        }
+        static get insertImage() {
+            return I18.resolve({
+                "en": "Insert image",
+                "es": "Insertar imagen"
+            });
+        }
+        static get insertLink() {
+            return I18.resolve({
+                "en": "Insert link",
+                "es": "Insertar Hipervínculo"
+            });
+        }
+        static get nextPage() {
+            return I18.resolve({
+                "en": "Next page",
+                "es": "Siguiente página"
+            });
+        }
+        static get previousPage() {
+            return I18.resolve({
+                "en": "Previous page",
+                "es": "Página anterior"
+            });
+        }
+        static get underline() {
+            return I18.resolve({
+                "en": "Underline",
+                "es": "Subrayar"
+            });
+        }
+        static get insertHTML() {
+            return I18.resolve({
+                "en": "Insert HTML",
+                "es": "Insertar HTML"
+            });
+        }
+        static get videoURL() {
+            return I18.resolve({
+                "en": "Video URL",
+                "es": "URL Video"
+            });
+        }
+        static get urlNotYouTube() {
+            return I18.resolve({
+                "en": "URL is not recognized as YouTube",
+                "es": "URL no es reconocido como YouTube"
+            });
+        }
+        static get makeRelease() {
+            return I18.resolve({
+                "en": "Make Release",
+                "es": "Crear Release"
+            });
+        }
+        static get insertYouTube() {
+            return I18.resolve({
+                "en": "Insert YouTube",
+                "es": "Insertar YouTube"
+            });
+        }
+        static get clearText() {
+            return I18.resolve({
+                "en": "Clear Text",
+                "es": "Limpiar texto"
+            });
+        }
+        static get developedBy() {
+            return I18.resolve({
+                "en": "Developed by Goplek.com",
+                "es": "Desarrollado por Goplek.com"
+            });
+        }
+        static get confirmDeleteS() {
+            return I18.resolve({
+                "en": "Do you want to delete\"%s\"?",
+                "es": "¿Desea eliminar \"%s\"?"
+            });
+        }
+        static get cantBeUndone() {
+            return I18.resolve({
+                "en": "This action can't be undone.",
+                "es": "Esta acción no se puede deshacer."
+            });
+        }
+        static get yesDeleteS() {
+            return I18.resolve({
+                "en": "Yes, delete %s",
+                "es": "Sí, eliminar %s"
+            });
+        }
+        static get goToPage() {
+            return I18.resolve({
+                "en": "Go to page",
+                "es": "Ir a página"
+            });
+        }
+        static get refresh() {
+            return I18.resolve({
+                "en": "Refresh",
+                "es": "Actualizar"
+            });
+        }
+        static get switchOn() {
+            return I18.resolve({
+                "en": "On",
+                "es": "Sí"
+            });
+        }
+        static get switchOff() {
+            return I18.resolve({
+                "en": "Off",
+                "es": "No"
+            });
+        }
+        static get flagsNone() {
+            return I18.resolve({
+                "en": "(None)",
+                "es": "(Ninguno)"
+            });
+        }
+        static get nothingToShow() {
+            return I18.resolve({
+                "en": "Nothing to Show",
+                "es": "Nada que mostrar"
+            });
+        }
+        static get jumpToYear() {
+            return I18.resolve({
+                "en": "Jump to Year",
+                "es": "Ir al año"
+            });
+        }
+        static get justNow() {
+            return I18.resolve({
+                "en": "Now",
+                "es": "Ahora"
+            });
+        }
+        static get oneMinuteAgo() {
+            return I18.resolve({
+                "en": "One minute ago",
+                "es": "Hace un minuto"
+            });
+        }
+        static get SMinutesAgo() {
+            return I18.resolve({
+                "en": "%s minutes ago",
+                "es": "Hace %s minutos"
+            });
+        }
+        static get oneHourAgo() {
+            return I18.resolve({
+                "en": "One hour ago",
+                "es": "Hace una hora"
+            });
+        }
+        static get SHoursAgo() {
+            return I18.resolve({
+                "en": "%s hours ago",
+                "es": "Hace %s horas"
+            });
+        }
+        static get yesterday() {
+            return I18.resolve({
+                "en": "Yesterday",
+                "es": "Ayer"
+            });
+        }
+        static get SDaysAgo() {
+            return I18.resolve({
+                "en": "%s days ago",
+                "es": "Hace %s días"
+            });
+        }
+        static get oneWeekAgo() {
+            return I18.resolve({
+                "en": "One week ago",
+                "es": "Hace una semana"
+            });
+        }
+        static get SWeeksAgo() {
+            return I18.resolve({
+                "en": "%s weeks ago",
+                "es": "Hace %s semanas"
+            });
+        }
+        static get oneYearAgo() {
+            return I18.resolve({
+                "en": "One year ago",
+                "es": "Hace un año"
+            });
+        }
+        static get SYearsAgo() {
+            return I18.resolve({
+                "en": "%s years ago",
+                "es": "Hace %s años"
+            });
+        }
+        static get sunday() {
+            return I18.resolve({
+                "en": "Sunday",
+                "es": "Domingo"
+            });
+        }
+        static get monday() {
+            return I18.resolve({
+                "en": "Monday",
+                "es": "Lunes"
+            });
+        }
+        static get tuesday() {
+            return I18.resolve({
+                "en": "Tuesday",
+                "es": "Martes"
+            });
+        }
+        static get wednesday() {
+            return I18.resolve({
+                "en": "Wednesday",
+                "es": "Miércoles"
+            });
+        }
+        static get thursday() {
+            return I18.resolve({
+                "en": "Thursday",
+                "es": "Jueves"
+            });
+        }
+        static get friday() {
+            return I18.resolve({
+                "en": "Friday",
+                "es": "Viernes"
+            });
+        }
+        static get saturday() {
+            return I18.resolve({
+                "en": "Saturday",
+                "es": "Sábado"
+            });
+        }
+        static get sundayShort() {
+            return I18.resolve({
+                "en": "Sun",
+                "es": "Dom"
+            });
+        }
+        static get mondayShort() {
+            return I18.resolve({
+                "en": "Mon",
+                "es": "Lun"
+            });
+        }
+        static get tuesdayShort() {
+            return I18.resolve({
+                "en": "Tue",
+                "es": "Mar"
+            });
+        }
+        static get wednesdayShort() {
+            return I18.resolve({
+                "en": "Wed",
+                "es": "Mié"
+            });
+        }
+        static get thursdayShort() {
+            return I18.resolve({
+                "en": "Thu",
+                "es": "Jue"
+            });
+        }
+        static get fridayShort() {
+            return I18.resolve({
+                "en": "Fri",
+                "es": "Vie"
+            });
+        }
+        static get saturdayShort() {
+            return I18.resolve({
+                "en": "Sat",
+                "es": "Sab"
+            });
+        }
+        static get sundayInitial() {
+            return I18.resolve({
+                "en": "S",
+                "es": "D"
+            });
+        }
+        static get mondayInitial() {
+            return I18.resolve({
+                "en": "M",
+                "es": "L"
+            });
+        }
+        static get tuesdayInitial() {
+            return I18.resolve({
+                "en": "T",
+                "es": "M"
+            });
+        }
+        static get wednesdayInitial() {
+            return I18.resolve({
+                "en": "W",
+                "es": "M"
+            });
+        }
+        static get thursdayInitial() {
+            return I18.resolve({
+                "en": "T",
+                "es": "J"
+            });
+        }
+        static get fridayInitial() {
+            return I18.resolve({
+                "en": "F",
+                "es": "V"
+            });
+        }
+        static get saturdayInitial() {
+            return I18.resolve({
+                "en": "S",
+                "es": "S"
+            });
+        }
+        static get january() {
+            return I18.resolve({
+                "en": "January",
+                "es": "Enero"
+            });
+        }
+        static get february() {
+            return I18.resolve({
+                "en": "February",
+                "es": "Febrero"
+            });
+        }
+        static get march() {
+            return I18.resolve({
+                "en": "March",
+                "es": "Marzo"
+            });
+        }
+        static get april() {
+            return I18.resolve({
+                "en": "April",
+                "es": "Abril"
+            });
+        }
+        static get may() {
+            return I18.resolve({
+                "en": "May",
+                "es": "Mayo"
+            });
+        }
+        static get june() {
+            return I18.resolve({
+                "en": "June",
+                "es": "Junio"
+            });
+        }
+        static get july() {
+            return I18.resolve({
+                "en": "July",
+                "es": "Julio"
+            });
+        }
+        static get august() {
+            return I18.resolve({
+                "en": "August",
+                "es": "Augosto"
+            });
+        }
+        static get september() {
+            return I18.resolve({
+                "en": "September",
+                "es": "Septiembre"
+            });
+        }
+        static get october() {
+            return I18.resolve({
+                "en": "October",
+                "es": "Octubre"
+            });
+        }
+        static get november() {
+            return I18.resolve({
+                "en": "November",
+                "es": "Noviembre"
+            });
+        }
+        static get december() {
+            return I18.resolve({
+                "en": "December",
+                "es": "Diciembre"
+            });
+        }
+        static get januaryShort() {
+            return I18.resolve({
+                "en": "Jan",
+                "es": "Ene"
+            });
+        }
+        static get februaryShort() {
+            return I18.resolve({
+                "en": "Feb",
+                "es": "Feb"
+            });
+        }
+        static get marchShort() {
+            return I18.resolve({
+                "en": "Mar",
+                "es": "Mar"
+            });
+        }
+        static get aprilShort() {
+            return I18.resolve({
+                "en": "Apr",
+                "es": "Abr"
+            });
+        }
+        static get mayShort() {
+            return I18.resolve({
+                "en": "May",
+                "es": "May"
+            });
+        }
+        static get juneShort() {
+            return I18.resolve({
+                "en": "Jun",
+                "es": "Jun"
+            });
+        }
+        static get julyShort() {
+            return I18.resolve({
+                "en": "Jul",
+                "es": "Jul"
+            });
+        }
+        static get augustShort() {
+            return I18.resolve({
+                "en": "Aug",
+                "es": "Ago"
+            });
+        }
+        static get septemberShort() {
+            return I18.resolve({
+                "en": "Sept",
+                "es": "Sep"
+            });
+        }
+        static get octoberShort() {
+            return I18.resolve({
+                "en": "Oct",
+                "es": "Oct"
+            });
+        }
+        static get novemberShort() {
+            return I18.resolve({
+                "en": "Nov",
+                "es": "Nov"
+            });
+        }
+        static get decemberShort() {
+            return I18.resolve({
+                "en": "Dec",
+                "es": "Dic"
+            });
+        }
+        static get januaryInitial() {
+            return I18.resolve({
+                "en": "J",
+                "es": "E"
+            });
+        }
+        static get februaryInitial() {
+            return I18.resolve({
+                "en": "F",
+                "es": "F"
+            });
+        }
+        static get marchInitial() {
+            return I18.resolve({
+                "en": "M",
+                "es": "M"
+            });
+        }
+        static get aprilInitial() {
+            return I18.resolve({
+                "en": "A",
+                "es": "A"
+            });
+        }
+        static get mayInitial() {
+            return I18.resolve({
+                "en": "M",
+                "es": "M"
+            });
+        }
+        static get juneInitial() {
+            return I18.resolve({
+                "en": "J",
+                "es": "J"
+            });
+        }
+        static get julyInitial() {
+            return I18.resolve({
+                "en": "J",
+                "es": "J"
+            });
+        }
+        static get augustInitial() {
+            return I18.resolve({
+                "en": "A",
+                "es": "A"
+            });
+        }
+        static get septemberInitial() {
+            return I18.resolve({
+                "en": "S",
+                "es": "S"
+            });
+        }
+        static get octoberInitial() {
+            return I18.resolve({
+                "en": "O",
+                "es": "O"
+            });
+        }
+        static get novemberInitial() {
+            return I18.resolve({
+                "en": "N",
+                "es": "N"
+            });
+        }
+        static get decemberInitial() {
+            return I18.resolve({
+                "en": "D",
+                "es": "D"
+            });
+        }
+        static get Smillis() {
+            return I18.resolve({
+                "en": "%s milliseconds",
+                "es": "%s milisegundos"
+            });
+        }
+        static get oneSecond() {
+            return I18.resolve({
+                "en": "1 second",
+                "es": "1 segundo"
+            });
+        }
+        static get Sseconds() {
+            return I18.resolve({
+                "en": "%s seconds",
+                "es": "%s segundos"
+            });
+        }
+        static get oneMinute() {
+            return I18.resolve({
+                "en": "1 minute",
+                "es": "1 minuto"
+            });
+        }
+        static get Sminutes() {
+            return I18.resolve({
+                "en": "%s minutes",
+                "es": "%s minutos"
+            });
+        }
+        static get oneHour() {
+            return I18.resolve({
+                "en": "1 hour",
+                "es": "1 hora"
+            });
+        }
+        static get Shours() {
+            return I18.resolve({
+                "en": "%s hours",
+                "es": "%s horas"
+            });
+        }
+        static get oneDay() {
+            return I18.resolve({
+                "en": "1 day",
+                "es": "1 día"
+            });
+        }
+        static get Sdays() {
+            return I18.resolve({
+                "en": "%s days",
+                "es": "%s días"
+            });
+        }
+        static get oneWeek() {
+            return I18.resolve({
+                "en": "1 week",
+                "es": "1 semana"
+            });
+        }
+        static get Sweeks() {
+            return I18.resolve({
+                "en": "%s weeks",
+                "es": "%s semanas"
+            });
+        }
+        static get SmillisShort() {
+            return I18.resolve({
+                "en": "= %sms",
+                "es": "= %sms"
+            });
+        }
+        static get oneSecondShort() {
+            return I18.resolve({
+                "en": "1s",
+                "es": "1s"
+            });
+        }
+        static get SsecondsShort() {
+            return I18.resolve({
+                "en": "%ss",
+                "es": "%ss"
+            });
+        }
+        static get oneMinuteShort() {
+            return I18.resolve({
+                "en": "1m",
+                "es": "1m"
+            });
+        }
+        static get SminutesShort() {
+            return I18.resolve({
+                "en": "%sm",
+                "es": "%sm"
+            });
+        }
+        static get oneHourShort() {
+            return I18.resolve({
+                "en": "1h",
+                "es": "1h"
+            });
+        }
+        static get ShoursShort() {
+            return I18.resolve({
+                "en": "%sh",
+                "es": "%sh"
+            });
+        }
+        static get oneDayShort() {
+            return I18.resolve({
+                "en": "1d",
+                "es": "1d"
+            });
+        }
+        static get SdaysShort() {
+            return I18.resolve({
+                "en": "%sd",
+                "es": "%sd"
+            });
+        }
+        static get oneWeekShort() {
+            return I18.resolve({
+                "en": "1w",
+                "es": "1w"
+            });
+        }
+        static get SweeksShort() {
+            return I18.resolve({
+                "en": "%sw",
+                "es": "%sw"
+            });
+        }
+        static get tomorrow() {
+            return I18.resolve({
+                "en": "Tomorrow",
+                "es": "Mañana"
+            });
+        }
+        static get today() {
+            return I18.resolve({
+                "en": "Today",
+                "es": "Hoy"
+            });
+        }
+        static get nextWeekDayS() {
+            return I18.resolve({
+                "en": "Next %s",
+                "es": "Próximo %s"
+            });
+        }
+        static get SWeeksFromNow() {
+            return I18.resolve({
+                "en": "%s weeks from now",
+                "es": "En %s semanas"
+            });
+        }
+        static get SYearsFromNow() {
+            return I18.resolve({
+                "en": "%s years from now",
+                "es": "En %s años"
+            });
+        }
+        static get oneYearFromNow() {
+            return I18.resolve({
+                "en": "One year from now",
+                "es": "En un año"
+            });
+        }
+        static get reconnecting() {
+            return I18.resolve({
+                "en": "Reconnecting",
+                "es": "Reconectando"
+            });
+        }
+        static get reconnectingInS() {
+            return I18.resolve({
+                "en": "Reconnecting in %s seconds",
+                "es": "Reconnectando en %s segundos"
+            });
+        }
+    }
+    latte.strings = strings;
 })(latte || (latte = {}));
 var latte;
 (function (latte) {
